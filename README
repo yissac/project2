@@ -1,0 +1,15 @@
+Commit before pulling from the repository always using the following lines
+
+COMMITTING:
+git commit -a ---> enter
+<type a message> ---> press crtl x
+then type y and hit enter
+
+PULLING:
+git pull origin master
+
+If you make some changes and want to update the repo then commit and push the changes
+
+PUSHING AFTER COMMITING
+git push
+
