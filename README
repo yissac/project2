@@ -13,3 +13,8 @@ If you make some changes and want to update the repo then commit and push the ch
 PUSHING AFTER COMMITING
 git push
 
+to add new files to the track list use:
+
+git add <whatever file name>
+
+this will let you push the file to the repo, however do not add the build files to the repo only the src files and the make file 
