@@ -1,5 +1,7 @@
 #include <GL/gl.h>
 #include <GL/glut.h>
+#include <SOLID/solid.h>
+#include <stdio.h>
 
 void something(void);
 
@@ -45,6 +47,10 @@ void something(void){
 	glEnd();
 }
 
+void collide1(void * client_data, DtObjectRef obj1, DtObjectRef obj2,
+	      const DtCollData *coll_data) {
+}
+
 
 int main (int argc, char ** argv){
 	glutInit(&argc,argv);
@@ -57,5 +63,25 @@ int main (int argc, char ** argv){
 	glutDisplayFunc(display);
 	glutReshapeFunc(reshape);
 
+	DtShapeRef box1 = dtSphere(2.0);
+	DtObjectRef obj1,obj2;
+	dtCreateObject(&obj1, box1);
+	dtCreateObject(&obj2, box1);
+
+
+	dtSelectObject(&obj1);
+	dtLoadIdentity();
+	dtTranslate(0,2,0);
+	dtRotate(0,0,1,0);
+	
+	dtSelectObject(&obj2);
+	dtLoadIdentity();
+	dtTranslate(0,-2,0);
+	dtRotate(0,0,1,0);
+
+ 	dtSetDefaultResponse(collide1, DT_SIMPLE_RESPONSE, stdout);
+
+	if(dtTest()) printf("gave a one\n");
+	else printf("gave a zero\n");
 	glutMainLoop();
 }

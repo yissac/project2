@@ -1,18 +1,18 @@
 SRC = src
 BLD = build
 PRG = prog.out
-LIBS = -lGL -lglut -lGLU
+LIBS = -lGL -lglut -lGLU -lFreeSOLID -I../FreeSOLID-2.1.1/include -LLIBDIR
 SRCS = main.cpp 
 
 VPATH = $(SRC)
 
 all : $(PRG)
 
-$(PRG) : $(BLD)/$(SRCS:.cpp=.o)
-	gcc -o $(PRG) $< $(LIBS)
+$(PRG) : $(addprefix $(BLD)/,$(SRCS:.cpp=.o))
+	gcc -o $(PRG) $(addprefix $(BLD)/,$(SRCS:.cpp=.o)) $(LIBS)
 
 $(BLD)/%.o : %.cpp $(BLD)
-	gcc -c $< -o $@
+	gcc -c $< -o $@ $(LIBS)
 
 $(BLD) :
 	mkdir $(BLD)
