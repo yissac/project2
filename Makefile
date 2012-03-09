@@ -1,7 +1,7 @@
 SRC = src
 BLD = build
 PRG = prog.out
-LIBS = -lGL -lglut -lGLU -lFreeSOLID -I../FreeSOLID-2.1.1/include -LLIBDIR
+LIBS = -lGL -lglut -lGLU -lFreeSOLID -I$(SRC) -LLIBDIR
 SRCS = main.cpp 
 
 VPATH = $(SRC)
