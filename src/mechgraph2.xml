@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns"  
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns
+     http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd">
+  <graph id="G" edgedefault="undirected">
+    <node id="00" x="000" y="000" z="000"/>
+    <node id="01" x="010" y="000" z="000"/>
+    <node id="02" x="-10" y="000" z="000"/>
+    <node id="03" x="000" y="010" z="000"/>
+    <node id="04" x="000" y="-10" z="000"/>
+    <node id="05" x="000" y="000" z="010"/>
+    <node id="06" x="000" y="000" z="-10"/>
+    <node id="07" x="010" y="010" z="010"/>
+    <node id="08" x="010" y="010" z="-10"/>
+    <node id="09" x="010" y="-10" z="010"/>
+    <node id="10" x="010" y="-10" z="-10"/>
+    <node id="11" x="-10" y="010" z="010"/>
+    <node id="12" x="-10" y="010" z="-10"/>
+    <node id="13" x="-10" y="-10" z="010"/>
+    <node id="14" x="-10" y="010" z="-10"/>
+    <node id="15" x="-10" y="-10" z="-10"/>
+    <node id="16" x="015" y="000" z="015"/>
+    <edge source="00" target="01"/>
+    <edge source="00" target="02"/>
+    <edge source="00" target="03"/>
+    <edge source="00" target="04"/>
+    <edge source="00" target="05"/>
+    <edge source="00" target="06"/>
+    <edge source="00" target="07"/>
+    <edge source="00" target="08"/>
+    <edge source="00" target="09"/>
+    <edge source="00" target="10"/>
+    <edge source="00" target="11"/>   
+    <edge source="00" target="13"/>
+    <edge source="00" target="14"/>
+    <edge source="00" target="15"/>
+    <edge source="07" target="16"/>
+    <edge source="12" target="00"/>
+  </graph>
+</graphml>
