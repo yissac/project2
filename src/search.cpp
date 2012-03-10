@@ -15,7 +15,18 @@ Search::Search(Feeder* inFeeder)
 
 void Search::initializeSearchWithFeeder(Feeder* inFeeder)
 {
+    newSearch();
     feeder = inFeeder;
+}
+
+void Search::newSearch()
+{
+    frontier.nodes.clear();
+    frontier.costs.clear();
+    numberOfNodesInFrontier = 0;
+    exploredSet.nodes.clear();
+    exploredSet.costs.clear();
+    numberOfNodesInExploredSet = 0;
 }
 
 void Search::initInitNode(int inInitNodeID)

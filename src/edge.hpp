@@ -15,13 +15,15 @@ public:
     void setEdgeID(int);
     double getCost();
     void setCost(double cost_);
-    bool explored;
+    void setExplored(bool);
+    bool isExplored();
 
 private:
     int edgeID;
     double cost;
     Node *source;
     Node *target;
+    bool explored;
 };
 
 #endif // EDGE_HPP

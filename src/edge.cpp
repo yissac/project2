@@ -38,3 +38,13 @@ void Edge::setEdgeID(int __edgeID)
 {
     edgeID = __edgeID;
 }
+
+void Edge::setExplored(bool cond)
+{
+    explored = cond;
+}
+
+bool Edge::isExplored()
+{
+    return explored;
+}

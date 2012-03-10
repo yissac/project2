@@ -8,7 +8,6 @@ Simulator::Simulator(QWidget *parent) :
     xRot = yRot = zRot = 0;
     zHomeView = -40;
     timerID = 0;
-    timerID = startTimer(20);
 }
 
 Simulator::~Simulator()
@@ -162,8 +161,40 @@ void Simulator::notify(int __ID,NotificationType updateType)
 
 void Simulator::initializeNetwork(std::map<int,MechanicalNode*>* inMap)
 {
+    if (!timerID)
+        killTimer(timerID);
+
+    nodeMap.clear();
+    edgeVec.clear();
+    graphicalObjects.clear();
+
     network = inMap;
+
+    xRot = yRot = zRot = 0;
+    zHomeView = -40;
+    timerID = startTimer(20);
+
     createNetwork();
+
+    if (!timerID)
+        updateGL();
+}
+
+void Simulator::resetForSearch()
+{
+    double resetClr[3] = {1.0,0.0,0.0};
+    for (unsigned int i=0; i<graphicalObjects.size(); i++)
+    {
+        graphicalObjects[i]->setClr(resetClr);
+    }
+    std::map <int,MechanicalNode*>::iterator it;
+    for (it = network->begin(); it != network->end(); it++)
+    {
+        ((*it).second)->parentNode = NULL;
+        ((*it).second)->setCurrentCost(0);
+        ((*it).second)->setHeuristicValue(0);
+        ((*it).second)->setExplored(0);
+    }
 }
 
 void Simulator::createNetwork()
@@ -243,7 +274,6 @@ void Simulator::createNetwork()
             GraphicalEdge* gEdge = new GraphicalEdge();
             graphicalObjects.push_back(gEdge);
             edgeVec.push_back(gEdge);
-//            edgeMap.insert(std::pair<int,GraphicalEdge*>((successors->at(i))->getEdgeID(),gEdge));
 
             gEdge->setID1((successors->at(i))->getEdgeID());
             gEdge->setPosition(posSource);

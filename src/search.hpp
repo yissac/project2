@@ -21,6 +21,7 @@ public:
     Search();
     Search(Feeder*);
 
+    void newSearch();
     void initializeSearchWithFeeder(Feeder*);
     void initInitNode(int);
     void initGoalNode(int);

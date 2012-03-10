@@ -24,6 +24,7 @@ public:
     explicit Simulator(QWidget *parent = 0);
     ~Simulator();
 
+    void resetForSearch();
     void initializeNetwork(std::map <int,MechanicalNode*>*);
     void drawSolutionPath(Node*);
     void notify();
@@ -53,18 +54,16 @@ private:
     int  getYRotation();
     int  getZRotation();
 
+    int timerID;
     int xRot;
     int yRot;
     int zRot;
     QPoint lastPos;
     double zHomeView;
 
-    std::vector <GeometricObject*> graphicalObjects;
-    int timerID;
-
-    std::map <int,GraphicalNode*> nodeMap;
-//    std::map <int,GraphicalEdge*> edgeMap;
     std::vector <GraphicalEdge*> edgeVec;
+    std::map <int,GraphicalNode*> nodeMap;
+    std::vector <GeometricObject*> graphicalObjects;
     std::map <int,MechanicalNode*>* network;
 
 signals:

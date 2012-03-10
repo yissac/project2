@@ -3,6 +3,7 @@
 
 #include <QMainWindow>
 #include <QtOpenGL/QGLWidget>
+#include <string>
 #include "astargraphsearch.hpp"
 #include "offlinefeeder.hpp"
 #include "simulator.hpp"
@@ -24,6 +25,7 @@ public:
 
 private slots:
     void on_findButton_clicked();
+    void on_loadFileButton_clicked();
 
 private:
     Ui::MainWindow *ui;

@@ -7,8 +7,7 @@ MainWindow::MainWindow(QWidget *parent) :
 {
     ui->setupUi(this);
 
-    feeder.initializeFeederWithFileName("mechgraph2.xml");
-    search.initializeSearchWithFeeder(&feeder);
+    search.registerObserver(ui->simWidget);
 }
 
 Simulator* MainWindow::getSimulatorPointer()
@@ -23,12 +22,11 @@ MainWindow::~MainWindow()
 
 void MainWindow::on_findButton_clicked()
 {
+    ui->simWidget->resetForSearch();
+    search.newSearch();
+
     int initNode = ui->initNodeBox->text().toInt();
     int goalNode = ui->goalNodeBox->text().toInt();
-
-    // Initialize Uninitialized Variables
-    ui->simWidget->initializeNetwork(feeder.getMapping());
-    search.registerObserver(ui->simWidget);
 
     search.initInitNode(initNode);
     search.initGoalNode(goalNode);
@@ -40,4 +38,13 @@ void MainWindow::on_findButton_clicked()
     {
         ui->simWidget->drawSolutionPath(solution);
     }
+}
+
+void MainWindow::on_loadFileButton_clicked()
+{
+    std::string filename = ui->loadFileBox->text().toStdString();
+
+    feeder.initializeFeederWithFileName(filename.c_str());
+    search.initializeSearchWithFeeder(&feeder);
+    ui->simWidget->initializeNetwork(feeder.getMapping());
 }

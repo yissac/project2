@@ -50,7 +50,7 @@
      </rect>
     </property>
    </widget>
-   <widget class="QLabel" name="label">
+   <widget class="QLabel" name="startNodeLabel">
     <property name="geometry">
      <rect>
       <x>790</x>
@@ -63,7 +63,7 @@
      <string>Start</string>
     </property>
    </widget>
-   <widget class="QLabel" name="label_2">
+   <widget class="QLabel" name="goalNodeLabel">
     <property name="geometry">
      <rect>
       <x>790</x>
@@ -89,27 +89,43 @@
      <string>Find</string>
     </property>
    </widget>
-   <widget class="QLineEdit" name="loadFileNameBox">
+   <widget class="QLabel" name="fileNameLabel">
     <property name="geometry">
      <rect>
-      <x>820</x>
-      <y>40</y>
-      <width>113</width>
-      <height>27</height>
-     </rect>
-    </property>
-   </widget>
-   <widget class="QLabel" name="label_3">
-    <property name="geometry">
-     <rect>
-      <x>770</x>
-      <y>20</y>
-      <width>101</width>
-      <height>17</height>
+      <x>810</x>
+      <y>50</y>
+      <width>61</width>
+      <height>16</height>
      </rect>
     </property>
     <property name="text">
-     <string>Load Network</string>
+     <string>File Name</string>
+    </property>
+   </widget>
+   <widget class="QLineEdit" name="loadFileBox">
+    <property name="geometry">
+     <rect>
+      <x>810</x>
+      <y>70</y>
+      <width>113</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>../resources/mechgraph2.xml</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="loadFileButton">
+    <property name="geometry">
+     <rect>
+      <x>810</x>
+      <y>90</y>
+      <width>75</width>
+      <height>23</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Load</string>
     </property>
    </widget>
   </widget>
@@ -119,7 +135,7 @@
      <x>0</x>
      <y>0</y>
      <width>1096</width>
-     <height>25</height>
+     <height>21</height>
     </rect>
    </property>
   </widget>

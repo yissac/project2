@@ -16,25 +16,24 @@ class OfflineFeeder : public Feeder
 public:
     OfflineFeeder(){}
 
-    OfflineFeeder(std::map<int,NodeType*>* mapping_){
-
+    OfflineFeeder(std::map<int,NodeType*>* mapping_)
+    {
         mapping = mapping_;
-
     }
 
     OfflineFeeder(const std::string& filename)
     {
-
         /* XML import */
         XmlReader xmlreader(filename);
     //    mapping = xmlreader.parseSocialGraph();
         mapping = xmlreader.parseGraph<NodeType>();
         std::cout << "OfflineFeed built from XML File : " << filename  << std::endl;
-
     }
 
     void initializeFeederWithFileName(const std::string& filename)
     {
+        mapping->clear();
+
         XmlReader xmlreader(filename);
         mapping = xmlreader.parseGraph<NodeType>();
         std::cout << "OfflineFeed built from XML File : " << filename  << std::endl;

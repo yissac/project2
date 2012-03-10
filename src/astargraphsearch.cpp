@@ -37,6 +37,7 @@ Node* AStarGraphSearch::runSearch()
 #if GUI_DISPLAY ==1
         // Notification for Simulator
         notifyObservers(currentNode->getNodeID(),NODE_UPDATE);
+        system("pause");
 //        sleep(1);
 //        system("read -p \"Press a key to continue...\" -n 1 -s");
         // -----------------------------------------------------------
@@ -68,10 +69,12 @@ Node* AStarGraphSearch::runSearch()
 
 
 
+#if GUI_DISPLAY ==1
             // Notification for Simulator
             notifyObservers(edgeSuccessors[i]->getEdgeID(),EDGE_UPDATE);
+            system("pause");
             // -----------------------------------------------------------
-
+#endif
 
 
 
