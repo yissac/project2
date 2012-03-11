@@ -55,3 +55,9 @@ void MainWindow::on_loadFileButton_clicked()
     search->initializeSearchWithFeeder(feeder);
     ui->simWidget->initializeNetwork(feeder->getMapping());
 }
+
+void MainWindow::on_rrtButton_clicked()
+{
+    static Dialog diag;
+    diag.show();
+}

@@ -4,6 +4,7 @@
 #include <QMainWindow>
 #include <QtOpenGL/QGLWidget>
 #include <string>
+#include "dialog.hpp"
 #include "search.hpp"
 #include "astargraphsearch.hpp"
 #include "offlinefeeder.hpp"
@@ -27,6 +28,8 @@ public:
 private slots:
     void on_findButton_clicked();
     void on_loadFileButton_clicked();
+
+    void on_rrtButton_clicked();
 
 private:
     Ui::MainWindow *ui;

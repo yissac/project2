@@ -27,7 +27,8 @@ SOURCES += main.cpp\
     graphicalnode.cpp \
     graphicaledge.cpp \
     observer.cpp \
-    observable.cpp
+    observable.cpp \
+    dialog.cpp
 HEADERS += mainwindow.h \
         node.hpp \
         edge.hpp \
@@ -50,6 +51,11 @@ HEADERS += mainwindow.h \
     graphicalnode.hpp \
     graphicaledge.hpp \
     observer.hpp \
-    observable.hpp
-FORMS   += mainwindow.ui
+    observable.hpp \
+    dialog.hpp
+FORMS   += mainwindow.ui \
+    dialog.ui
 CONFIG  += console
+
+
+
