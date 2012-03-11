@@ -124,6 +124,9 @@ void::Simulator::drawSolutionPath(Node* solNode)
             }
         }
     }
+
+    if (!timerID)
+        updateGL();
 }
 
 void Simulator::notify()
@@ -172,7 +175,7 @@ void Simulator::initializeNetwork(std::map<int,MechanicalNode*>* inMap)
 
     xRot = yRot = zRot = 0;
     zHomeView = -40;
-    timerID = startTimer(20);
+//    timerID = startTimer(20);
 
     createNetwork();
 
