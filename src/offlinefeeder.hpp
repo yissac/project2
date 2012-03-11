@@ -32,7 +32,7 @@ public:
 
     void initializeFeederWithFileName(const std::string& filename)
     {
-        mapping->clear();
+//        mapping->clear();
 
         XmlReader xmlreader(filename);
         mapping = xmlreader.parseGraph<NodeType>();

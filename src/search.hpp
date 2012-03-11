@@ -8,7 +8,7 @@
 #include "edge.hpp"
 #include "observable.hpp"
 
-struct nodeAndCost
+struct NodeAndCost
 {
     std::vector <Node*>  nodes;
     std::vector <double> costs;
@@ -48,8 +48,8 @@ protected:
     Heuristic* heuristic;
     int numberOfNodesInFrontier;
     int numberOfNodesInExploredSet;
-    struct nodeAndCost frontier;
-    struct nodeAndCost exploredSet;
+    struct NodeAndCost frontier;
+    struct NodeAndCost exploredSet;
 };
 
 #endif // SEARCH_HPP

@@ -4,6 +4,7 @@
 #include <QMainWindow>
 #include <QtOpenGL/QGLWidget>
 #include <string>
+#include "search.hpp"
 #include "astargraphsearch.hpp"
 #include "offlinefeeder.hpp"
 #include "simulator.hpp"
@@ -31,8 +32,8 @@ private:
     Ui::MainWindow *ui;
 
     Heuristic heur;
-    OfflineFeeder <MechanicalNode> feeder;
-    AStarGraphSearch search;
+    OfflineFeeder <MechanicalNode>* feeder;
+    Search* search;
 };
 
 #endif // MAINWINDOW_H

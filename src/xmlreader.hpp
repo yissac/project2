@@ -118,17 +118,17 @@ public :
 
                     /* Adds friend to friendlist */
                     Edge *edge1 = new Edge(sourceNode,targetNode);
-//                    Edge *edge2 = new Edge(targetNode,sourceNode);
+                    Edge *edge2 = new Edge(targetNode,sourceNode);
                     edge1->setCost(1);
-//                    edge2->setCost(1);
+                    edge2->setCost(1);
                     sourceNode->addSuccessor(edge1);
-//                    targetNode->addSuccessor(edge2);
+                    targetNode->addSuccessor(edge2);
 
                     // Temporary Shit Remove Later
                     edge1->setEdgeID(edgeID);// --------------------------------------
                     edgeID++;// --------------------------------------
-//                    edge2->setEdgeID(edgeID);// --------------------------------------
-//                    edgeID++;// --------------------------------------
+                    edge2->setEdgeID(edgeID);// --------------------------------------
+                    edgeID++;// --------------------------------------
                 }
 
         std::cout << "XML import completed" << std::endl;
