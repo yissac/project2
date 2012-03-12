@@ -14,11 +14,17 @@ Environment::Environment()
     //Obstacle 1
     scene.addEllipse(-500,-500,300,300,QPen(Qt::green),QBrush(Qt::green,Qt::SolidPattern));
     //Obstacle 2
-    QPolygon triangle;
-    triangle << QPoint(0,150) << QPoint(-150,-150) << QPoint(150,-150);
-    scene.addPolygon(triangle,QPen(Qt::green),QBrush(Qt::green,Qt::SolidPattern));
+    QPolygon triangle1;
+    triangle1 << QPoint(0,150) << QPoint(-150,-150) << QPoint(150,-150);
+    scene.addPolygon(triangle1,QPen(Qt::green),QBrush(Qt::green,Qt::SolidPattern));
     //Obstacle 3
     scene.addRect(250,250,250,250,QPen(Qt::green),QBrush(Qt::green,Qt::SolidPattern));
+    //Obstacle 4
+    scene.addRect(-250,-250,250,250,QPen(Qt::green),QBrush(Qt::green,Qt::SolidPattern));
+    //Obstacle 5
+    QPolygon triangle2;
+    triangle2 << QPoint(250,250) << QPoint(100,100) << QPoint(350,300);
+    scene.addPolygon(triangle2,QPen(Qt::green),QBrush(Qt::green,Qt::SolidPattern));
 
     current = scene.addRect(-5,-50,10,100,QPen(Qt::blue),QBrush(Qt::blue,Qt::SolidPattern));
 }
