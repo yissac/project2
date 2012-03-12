@@ -32,6 +32,8 @@ void Dialog::on_findNode_clicked()
 }
 void Dialog::on_find100Nodes_clicked()
 {
+
+    std::clock_t startTime;
     for(int i = 0; i < 100; i++)
     {
         if(search->expandTree())
@@ -43,6 +45,10 @@ void Dialog::on_find100Nodes_clicked()
         {
             ui->feedback->setPlainText(QString("number nodes searched:")+QString::number(search->numNodes()));
         }
+        ui->searchTreeView->scene()->update();
+        qApp->processEvents();
+        startTime = std::clock();
+        while(std::clock() -startTime < 0.5*(double)CLOCKS_PER_SEC);
     }
 
 }
@@ -56,4 +62,15 @@ void Dialog::on_solve_clicked()
                                +QString::number(search->numNodes())
                                +QString("\nTime(s):")
                                +QString::number(diff));
+}
+void Dialog::on_run_clicked()
+{
+    clock_t startTime;
+    while(NULL != search->showPredicessor())
+    {
+        ui->searchTreeView->scene()->update();
+        qApp->processEvents();
+        startTime = std::clock();
+        while(std::clock() -startTime < 0.5*(double)CLOCKS_PER_SEC);
+    }
 }

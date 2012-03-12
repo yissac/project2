@@ -6,6 +6,7 @@
 #include <QGraphicsScene>
 #include <QGraphicsItem>
 #include <QGraphicsRectItem>
+#include <ctime>
 
 
 #include <cstdio>
@@ -28,12 +29,12 @@ public:
     QGraphicsScene* getScene();
     QGraphicsScene* getTreeScene();
     int solve();
+    SearchNode *showPredicessor();
 private:
     SearchNode *start,*end;
     list<SearchNode*> searchTree;
     Environment env;
     QGraphicsScene searchTreeVisual;
-    QGraphicsItem *currentPos;
 
 };
 

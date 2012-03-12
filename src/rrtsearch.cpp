@@ -92,3 +92,15 @@ int RRTSearch::solve()
     while(!expandTree());
     return searchTree.size();
 }
+
+SearchNode *RRTSearch::showPredicessor()
+{
+    static SearchNode* node = NULL;
+    if(node == NULL)
+    {
+        node = searchTree.back();
+    }
+    env.pointIsValid(node);
+    node = node->parent;
+    return node;
+}
