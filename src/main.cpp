@@ -22,12 +22,12 @@ int main(int argc, char *argv[])
     return a.exec();
 
 #else
-
+    //QApplication a(argc, argv);
     RRTSearch search(-400,0,45,
                       400,0,90);
-    search.solve();
+//    search.solve();
 
-
+    //return a.exec();
 
 //    // Declare Variables
 //    Heuristic heur;

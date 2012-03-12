@@ -16,6 +16,7 @@ public:
     explicit Dialog(QWidget *parent = 0);
     ~Dialog();
 public slots:
+    void on_solve_clicked();
     void on_find100Nodes_clicked();
     void on_findNode_clicked();
 

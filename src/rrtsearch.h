@@ -27,7 +27,7 @@ public:
     int numNodes();
     QGraphicsScene* getScene();
     QGraphicsScene* getTreeScene();
-    void solve();
+    int solve();
 private:
     SearchNode *start,*end;
     list<SearchNode*> searchTree;

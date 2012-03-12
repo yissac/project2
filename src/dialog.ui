@@ -56,12 +56,16 @@
        </property>
       </widget>
      </item>
+     <item>
+      <widget class="QPushButton" name="solve">
+       <property name="text">
+        <string>Solve</string>
+       </property>
+      </widget>
+     </item>
     </layout>
    </item>
   </layout>
-  <zorder>layoutWidget</zorder>
-  <zorder>layoutWidget_2</zorder>
-  <zorder>searchTreeView</zorder>
  </widget>
  <resources/>
  <connections/>
