@@ -7,7 +7,7 @@
 
 #include <iostream>
 
-#define GUI_DISPLAY 0
+#define GUI_DISPLAY 1
 
 int main(int argc, char *argv[])
 {
