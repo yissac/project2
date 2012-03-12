@@ -108,7 +108,7 @@ void::Simulator::drawSolutionPath(Node* solNode)
             {
                 int eID = (*it)->getEdgeID();
 //                edgeMap[eID]->setClr(solutionColor);
-                for (int i=0; i<edgeVec.size(); i++)
+                for (unsigned int i=0; i<edgeVec.size(); i++)
                 {
                     int ID1,ID2;
                     edgeVec[i]->getIDs(ID1,ID2);

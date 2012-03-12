@@ -11,6 +11,8 @@ RRTSearch::RRTSearch(float startX, float startY, float startTheta,
     searchTreeVisual.addLine(X_BASE        ,Y_BASE+Y_RANGE,X_BASE+X_RANGE,Y_BASE+Y_RANGE);
     searchTreeVisual.addLine(X_BASE        ,Y_BASE        ,X_BASE        ,Y_BASE+Y_RANGE);
     searchTreeVisual.addLine(X_BASE+X_RANGE,Y_BASE        ,X_BASE+X_RANGE,Y_BASE+Y_RANGE);
+
+    env.initPosition(startX,startY,startTheta);
 }
 
 SearchNode* RRTSearch::findNearestNeighbor(SearchNode* other)
@@ -78,6 +80,9 @@ bool RRTSearch::expandTree()
         else
             newPoint = expandTreeTowards(new SearchNode());
     }
+
     searchTreeVisual.addEllipse(newPoint->x()-2,newPoint->y()-2,4,4,QPen(Qt::blue));
+    searchTreeVisual.addLine(newPoint->x(),newPoint->y(),newPoint->parent->x(),newPoint->parent->y(),QPen(Qt::blue));
+
     return newPoint->distanceTo(end) < 30;
 }

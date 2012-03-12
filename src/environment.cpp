@@ -10,14 +10,28 @@ Environment::Environment()
     scene.addLine(X_BASE        ,Y_BASE+Y_RANGE,X_BASE+X_RANGE,Y_BASE+Y_RANGE);
     scene.addLine(X_BASE        ,Y_BASE        ,X_BASE        ,Y_BASE+Y_RANGE);
     scene.addLine(X_BASE+X_RANGE,Y_BASE        ,X_BASE+X_RANGE,Y_BASE+Y_RANGE);
-    scene.addEllipse(   0-100,   0-100,300,300);
-    scene.addEllipse(   0-100,-300-100,300,300);
-    scene.addEllipse(   0-100, 300-100,300,300);
 
-    current = scene.addRect(-5,-50,10,100);
+    //Obstacle 1
+    scene.addEllipse(-500,-500,300,300,QPen(Qt::green),QBrush(Qt::green,Qt::SolidPattern));
+    //Obstacle 2
+    QPolygon triangle;
+    triangle << QPoint(0,150) << QPoint(-150,-150) << QPoint(150,-150);
+    scene.addPolygon(triangle,QPen(Qt::green),QBrush(Qt::green,Qt::SolidPattern));
+    //Obstacle 3
+    scene.addRect(250,250,250,250,QPen(Qt::green),QBrush(Qt::green,Qt::SolidPattern));
+
+    current = scene.addRect(-5,-50,10,100,QPen(Qt::blue),QBrush(Qt::blue,Qt::SolidPattern));
 }
 
+void Environment::initPosition(qreal x, qreal y, qreal theta)
+{
+    current->setPos(x,y);
+    current->setRotation(theta);
+}
 
+void Environment::goalPosition(qreal x, qreal y, qreal theta)
+{
+}
 
 bool Environment::pathIsValid(SearchNode* start, SearchNode* finish)
 {

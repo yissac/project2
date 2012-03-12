@@ -25,11 +25,14 @@ public:
 
     void cutStepSize();
     void increaseStepSize();
+
+    SearchNode* parent;
+
 private:
     float xVal,yVal,thetaVal;
     float stepSize;
     static bool seedSet;
-    SearchNode* parent;
+
 
 };
 

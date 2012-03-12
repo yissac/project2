@@ -6,7 +6,6 @@
 #include "searchnode.h"
 #define MAX_CHECK_DISTANCE 10
 
-
 class Environment
 {
 public:
@@ -14,6 +13,9 @@ public:
     bool pathIsValid(SearchNode* start, SearchNode* finish);
     bool pointIsValid(SearchNode* other);
     
+    void initPosition(qreal,qreal,qreal);
+    void goalPosition(qreal,qreal,qreal);
+
     QGraphicsScene *getScene();
 signals:
     

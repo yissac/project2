@@ -41,7 +41,7 @@ SearchNode* SearchNode::expandTowards(SearchNode* dest)
     mag = distanceTo(dest);
     if(mag < stepSize)
     {
-        return new SearchNode(dest->x(),dest->y(),dest->theta());
+        return new SearchNode(dest->x(),dest->y(),dest->theta(),this);
     }
     else
     {
