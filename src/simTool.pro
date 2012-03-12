@@ -28,7 +28,10 @@ SOURCES += main.cpp\
     graphicaledge.cpp \
     observer.cpp \
     observable.cpp \
-    dialog.cpp
+    dialog.cpp \
+    rrtsearch.cpp \
+    searchnode.cpp \
+    environment.cpp
 HEADERS += mainwindow.h \
         node.hpp \
         edge.hpp \
@@ -52,7 +55,10 @@ HEADERS += mainwindow.h \
     graphicaledge.hpp \
     observer.hpp \
     observable.hpp \
-    dialog.hpp
+    dialog.hpp \
+    rrtsearch.h \
+    environment.h \
+    searchnode.h
 FORMS   += mainwindow.ui \
     dialog.ui
 CONFIG  += console
