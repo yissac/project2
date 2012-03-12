@@ -1,4 +1,5 @@
 #include "graphicaledge.hpp"
+#include <GL/glu.h>
 
 GraphicalEdge::GraphicalEdge()
 {

@@ -1,4 +1,5 @@
 #include "graphicalnode.hpp"
+#include <GL/glu.h>
 
 GraphicalNode::GraphicalNode()
 {

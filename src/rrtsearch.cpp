@@ -86,3 +86,8 @@ bool RRTSearch::expandTree()
 
     return newPoint->distanceTo(end) < 30;
 }
+
+void RRTSearch::solve()
+{
+    while(!expandTree());
+}

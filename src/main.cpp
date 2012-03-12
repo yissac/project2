@@ -7,7 +7,7 @@
 
 #include <iostream>
 
-#define GUI_DISPLAY 1
+#define GUI_DISPLAY 0
 
 int main(int argc, char *argv[])
 {
@@ -23,29 +23,37 @@ int main(int argc, char *argv[])
 
 #else
 
-    // Declare Variables
-    Heuristic heur;
-    OfflineFeeder<MechanicalNode> feeder("../resources/mechgraph2.xml");
-    AStarGraphSearch search(&feeder);
+    RRTSearch search(-400,0,45,
+                      400,0,90);
+    search.solve();
 
-    // Initialize Uninitialized Variables
-    search.initInitNode(12);
-    search.initGoalNode(16);
-    search.initHeuristic(&heur);
 
-    // Run the algorithm
-    Node* solution = search.runSearch();
 
-    if (solution == NULL)
-        std::cout << "No path from start to goal node exists" << std::endl;
-    else
-    {
-        for (Node* i=solution; i!=NULL; i=i->parentNode)
-            std::cout << i->nodeID << " : " << i->getCurrentCost() <<  std::endl;
-    }
+//    // Declare Variables
+//    Heuristic heur;
+//    OfflineFeeder<MechanicalNode> feeder("../resources/mechgraph2.xml");
+//    AStarGraphSearch search(&feeder);
 
-    // Cleanup and preperation to exit program
-    return 0;
+//    // Initialize Uninitialized Variables
+//    search.initInitNode(12);
+//    search.initGoalNode(16);
+//    search.initHeuristic(&heur);
+
+//    // Run the algorithm
+//    Node* solution = search.runSearch();
+
+//    if (solution == NULL)
+//        std::cout << "No path from start to goal node exists" << std::endl;
+//    else
+//    {
+//        for (Node* i=solution; i!=NULL; i=i->parentNode)
+//            std::cout << i->nodeID << " : " << i->getCurrentCost() <<  std::endl;
+//    }
+
+//    // Cleanup and preperation to exit program
+//    return 0;
+
+
 
 #endif
 }
