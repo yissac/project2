@@ -1,6 +1,6 @@
 #include "dialog.hpp"
 #include "ui_dialog.h"
-#include <time.h>
+#include <ctime>
 
 Dialog::Dialog(QWidget *parent) :
     QDialog(parent),
@@ -48,11 +48,10 @@ void Dialog::on_find100Nodes_clicked()
 }
 void Dialog::on_solve_clicked()
 {
-    time_t startTime,endTime;
-    time(&startTime);
+    std::clock_t startTime;
+    startTime = std::clock();
     search->solve();
-    time(&endTime);
-    double diff = difftime(startTime,endTime);
+    double diff = ( std::clock() - startTime ) / (double)CLOCKS_PER_SEC;
     ui->feedback->setPlainText(QString("Found!\nnumber nodes searched:")
                                +QString::number(search->numNodes())
                                +QString("\nTime(s):")
