@@ -27,8 +27,9 @@ public:
     void increaseStepSize();
 
     SearchNode* parent;
-
+    int getNumRandNodes(){return numberRandNodes;}
 private:
+    static int numberRandNodes;
     float xVal,yVal,thetaVal;
     float stepSize;
     static bool seedSet;
