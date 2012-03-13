@@ -78,7 +78,8 @@ bool RRTSearch::expandTree()
             newPoint  = expandTreeTowards(end);
         }
         else
-            newPoint = expandTreeTowards(new SearchNode());
+            newPoint = expandTreeTowards(new SearchNode(135));
+
     }
 
     searchTreeVisual.addEllipse(newPoint->x()-2,newPoint->y()-2,4,4,QPen(Qt::blue));

@@ -64,12 +64,12 @@ float SearchNode::distanceTo(SearchNode* other)
 
 void SearchNode::cutStepSize()
 {
-    stepSize/=2;
+//    stepSize/=2;
 }
 
 void SearchNode::increaseStepSize()
 {
-    stepSize+=10;
+//    stepSize+=10;
 }
 
 SearchNode* SearchNode::getParent(void)

@@ -1,6 +1,7 @@
 #include "dialog.hpp"
 #include "ui_dialog.h"
 #include <ctime>
+#include "searchnode.h"
 
 Dialog::Dialog(QWidget *parent) :
     QDialog(parent),
@@ -58,12 +59,21 @@ void Dialog::on_solve_clicked()
     startTime = std::clock();
     search->solve();
     double diff = ( std::clock() - startTime ) / (double)CLOCKS_PER_SEC;
+    double pathDistance = 0;
+    SearchNode* node = search->showPredicessor();
+    while(node->parent != NULL)
+    {
+        pathDistance += node->parent->distanceTo(node);
+        node = node->parent;
+    }
     ui->feedback->setPlainText(QString("Found!\nnumber nodes searched:")
                                +QString::number(search->numNodes())
                                +QString("\nTime(s):")
                                +QString::number(diff)
                                +QString("\nRand Nodes Generated:")
-                               +QString::number(search->getNumRandNodes()));
+                               +QString::number(search->getNumRandNodes())
+                               +QString("\nPath Distance:")
+                               +QString::number(pathDistance));
 }
 void Dialog::on_run_clicked()
 {
