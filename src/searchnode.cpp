@@ -1,6 +1,7 @@
 #include "searchnode.h"
 
 bool SearchNode::seedSet = false;
+int SearchNode::numberRandNodes = 0;
 
 SearchNode::SearchNode(float x, float y, float theta, SearchNode* parent)
 {
@@ -22,6 +23,7 @@ SearchNode::SearchNode(unsigned int randSeed)
         seedSet = true;
         srand(randSeed);
     }
+    numberRandNodes++;
     this->xVal = X_BASE + (X_RANGE* rand()/RAND_MAX);
     this->yVal = Y_BASE + (Y_RANGE* rand()/RAND_MAX);
     this->thetaVal = 360*rand()/RAND_MAX;

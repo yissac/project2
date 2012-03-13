@@ -61,7 +61,9 @@ void Dialog::on_solve_clicked()
     ui->feedback->setPlainText(QString("Found!\nnumber nodes searched:")
                                +QString::number(search->numNodes())
                                +QString("\nTime(s):")
-                               +QString::number(diff));
+                               +QString::number(diff)
+                               +QString("\nRand Nodes Generated:")
+                               +QString::number(search->getNumRandNodes()));
 }
 void Dialog::on_run_clicked()
 {

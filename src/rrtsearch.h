@@ -30,6 +30,7 @@ public:
     QGraphicsScene* getTreeScene();
     int solve();
     SearchNode *showPredicessor();
+    int getNumRandNodes(){return start->getNumRandNodes();}
 private:
     SearchNode *start,*end;
     list<SearchNode*> searchTree;
