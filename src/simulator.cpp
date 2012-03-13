@@ -159,6 +159,12 @@ void Simulator::notify(int __ID,NotificationType updateType)
 
     if (!timerID)
         updateGL();
+
+
+    clock_t startTime;
+    startTime = std::clock();
+    while(std::clock() -startTime < 0.1*(double)CLOCKS_PER_SEC)
+        qAppPtr->processEvents();
 }
 
 void Simulator::initializeNetwork(std::map<int,MechanicalNode*>* inMap)

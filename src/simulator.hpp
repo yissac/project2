@@ -14,8 +14,10 @@
 #include "node.hpp"
 #include "edge.hpp"
 
+#include <ctime>
 #include <iostream>
 #include <cstdio>
+#include <QApplication>
 
 class Simulator : public QGLWidget, public Observer
 {
@@ -29,6 +31,8 @@ public:
     void drawSolutionPath(Node*);
     void notify();
     void notify(int,NotificationType);
+
+    QApplication* qAppPtr;
 
 private:
 
