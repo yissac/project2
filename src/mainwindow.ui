@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>920</width>
-    <height>566</height>
+    <width>1257</width>
+    <height>638</height>
    </rect>
   </property>
   <property name="focusPolicy">
@@ -20,15 +20,18 @@
    <widget class="Simulator" name="simWidget" native="true">
     <property name="geometry">
      <rect>
-      <x>20</x>
-      <y>20</y>
-      <width>711</width>
-      <height>471</height>
+      <x>750</x>
+      <y>290</y>
+      <width>461</width>
+      <height>271</height>
      </rect>
     </property>
     <property name="focusPolicy">
      <enum>Qt::StrongFocus</enum>
     </property>
+    <zorder>verticalLayoutWidget</zorder>
+    <zorder>verticalLayoutWidget</zorder>
+    <zorder>verticalLayoutWidget</zorder>
    </widget>
    <widget class="QGroupBox" name="groupBox">
     <property name="geometry">
@@ -140,6 +143,19 @@
       <string>../resources/mechgraph2.xml</string>
      </property>
     </widget>
+    <zorder>loadFileButton</zorder>
+    <zorder>findButton</zorder>
+    <zorder>initNodeBox</zorder>
+    <zorder>goalNodeBox</zorder>
+    <zorder>startNodeLabel</zorder>
+    <zorder>fileNameLabel</zorder>
+    <zorder>goalNodeLabel</zorder>
+    <zorder>loadFileBox</zorder>
+    <zorder>rrtButton</zorder>
+    <zorder>rrtButton</zorder>
+    <zorder>rrtButton</zorder>
+    <zorder>simWidget</zorder>
+    <zorder>rrtButton</zorder>
    </widget>
    <widget class="QPushButton" name="rrtButton">
     <property name="geometry">
@@ -160,7 +176,7 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>920</width>
+     <width>1257</width>
      <height>21</height>
     </rect>
    </property>

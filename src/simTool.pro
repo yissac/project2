@@ -6,6 +6,7 @@
 
 QT      += core gui
 QT      += opengl
+QT      += xml
 TARGET   = simTool
 TEMPLATE = app
 SOURCES += main.cpp\

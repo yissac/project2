@@ -20,22 +20,16 @@ public:
     Node();
     Node(int id_);
 
-
     int  getNodeID();
     void setNodeID(int);
     void setNodeType(NodeType);
-
-    void addSuccessor(Edge *);
-    std::vector<Edge*>* getSuccessors();
-
-    double getCurrentCost();
-    double getHeuristicValue();
-    void   setParent(Node*);
-    void   setCurrentCost(double);
-    void   setHeuristicValue(double);
+    void setParent(Node*);
 
     bool isExplored();
     void setExplored(bool a);
+
+    void addSuccessor(Edge *);
+    std::vector<Edge*>* getSuccessors();
 
     // change this shit
     Node* parentNode;
@@ -43,12 +37,9 @@ public:
 
 protected:
 
-    double realCostToGetHere;
-    double heuristicValue;
-    bool explored;
-
     std::vector<Edge*> successors;// This is to be used with Offline nodes or to store succesors of online nodes
 
+    bool explored;
     NodeType type;
 };
 

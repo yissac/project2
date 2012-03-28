@@ -107,7 +107,6 @@ void::Simulator::drawSolutionPath(Node* solNode)
             if (solNode == (*it)->getTarget())
             {
                 int eID = (*it)->getEdgeID();
-//                edgeMap[eID]->setClr(solutionColor);
                 for (unsigned int i=0; i<edgeVec.size(); i++)
                 {
                     int ID1,ID2;
@@ -199,8 +198,6 @@ void Simulator::resetForSearch()
     for (it = network->begin(); it != network->end(); it++)
     {
         ((*it).second)->parentNode = NULL;
-        ((*it).second)->setCurrentCost(0);
-        ((*it).second)->setHeuristicValue(0);
         ((*it).second)->setExplored(0);
     }
 }

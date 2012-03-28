@@ -31,39 +31,41 @@ Node* AStarGraphSearch::runSearch()
 
         addNodeToExploredSet(current);
 
-        std::vector <Node*> nodeSuccessors;
+        int currentID = current->getNodeID();
         std::vector <Edge*> edgeSuccessors;
         feeder->getSuccessors(current,&edgeSuccessors);
         int numberOfSuccessors = edgeSuccessors.size();
-        nodeSuccessors.resize(numberOfSuccessors);
         for (int i=0; i<numberOfSuccessors; i++)
         {
-            nodeSuccessors[i] = edgeSuccessors[i]->getTarget(); /*---- GUI UPDATE ----*/ notifyObservers(edgeSuccessors[i]->getEdgeID(),EDGE_UPDATE);
-
-            if (isNodeInExploredSet(nodeSuccessors[i]))
+            Node* neighbour = edgeSuccessors[i]->getTarget(); /*---- GUI UPDATE ----*/ notifyObservers(edgeSuccessors[i]->getEdgeID(),EDGE_UPDATE);
+            if (isNodeInExploredSet(neighbour))
                 continue;
 
-            int currentID = current->getNodeID();
-            bool tentative_is_better;
-            double tentative_g_score = g_score[currentID] + edgeSuccessors[i]->getCost();
-            int neigbourID = nodeSuccessors[i]->getNodeID();
+            int neighbourID = neighbour->getNodeID();
 
-            if (!isNodeInFrontier(nodeSuccessors[i]))
+            int posInOpenSet = isNodeInFrontier(neighbour);
+            if (posInOpenSet == -1)
             {
-                h_score[neigbourID] = heuristic->evaluateHeuristic(nodeSuccessors[i]);
-                addNodeToFrontier(nodeSuccessors[i]);
-                tentative_is_better = true;
+                double g_neighbour   = g_score[currentID] + edgeSuccessors[i]->getCost();
+                g_score[neighbourID] = g_neighbour;
+                h_score[neighbourID] = heuristic->evaluateHeuristic(neighbour);
+                f_score[neighbourID] = g_neighbour + h_score[neighbourID];
+                neighbour->setParent(current);
+                addNodeToFrontier(neighbour);
             }
-            else if (tentative_g_score < g_score[neigbourID])
-                tentative_is_better = true;
             else
-                tentative_is_better = false;
-
-            if (tentative_is_better)
             {
-                nodeSuccessors[i]->setParent(current);
-                g_score[neigbourID] = tentative_g_score;
-                f_score[neigbourID] = g_score[neigbourID] + h_score[neigbourID];
+                double newPath_g_score = g_score[currentID] + edgeSuccessors[i]->getCost();
+                if (newPath_g_score < g_score[neighbourID])
+                {
+                    //update g,f scores and parent, h score stays the same
+                    g_score[neighbourID] = newPath_g_score;
+                    f_score[neighbourID] = newPath_g_score + h_score[neighbourID];
+                    neighbour->setParent(current);
+                    openSet.erase(openSet.begin() + posInOpenSet);
+                    numberOfNodesInFrontier--;
+                    addNodeToFrontier(neighbour);
+                }
             }
         }
     }

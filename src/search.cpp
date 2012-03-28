@@ -47,33 +47,8 @@ void Search::initHeuristic(Heuristic* inHeuristic)
 
 void Search::addNodeToFrontier(Node* inNode)
 {
-    // If frontier is empty
-    if (numberOfNodesInFrontier == 0)
-    {
-        numberOfNodesInFrontier++;
-        openSet.push_back(inNode);
-        return;
-    }
-
-    // If frontier is not empty and inNode is the least f_score
-    double inCost = f_score[inNode->getNodeID()];
-    if (inCost < f_score[openSet[numberOfNodesInFrontier-1]->getNodeID()])
-    {
-        openSet.push_back(inNode);
-        numberOfNodesInFrontier++;
-        return;
-    }
-
-    // If frontier is not empty and inNode is not the least f_score
-    for (int i=numberOfNodesInFrontier-2;i>-1;i--)
-    {
-        if (inCost < f_score[openSet[i]->getNodeID()])
-        {
-            openSet.insert(openSet.begin() + i + 1,inNode);
-            numberOfNodesInFrontier++;
-            return;
-        }
-    }
+    openSet.push_back(inNode);
+    numberOfNodesInFrontier++;
 }
 
 void Search::addNodeToExploredSet(Node* inNode)
@@ -105,10 +80,21 @@ Node* Search::popFrontier()
     if (numberOfNodesInFrontier == 0)
         return NULL;
 
-    Node* nodeToReturn = openSet[numberOfNodesInFrontier-1];
-    numberOfNodesInFrontier--;
+    int index = 0;
+    double min_f_score = f_score[index];
+    for (int i=0;i<numberOfNodesInFrontier;i++)
+    {
+        double current_f_score = f_score[openSet[i]->getNodeID()];
+        if (current_f_score < min_f_score)
+        {
+            min_f_score = current_f_score;
+            index = i;
+        }
+    }
+    Node* nodeToReturn = openSet[index];
 
-    openSet.erase(openSet.end()-1);
+    openSet.erase(openSet.begin() + index);
+    numberOfNodesInFrontier--;
 
     return nodeToReturn;
 }
@@ -126,15 +112,18 @@ bool Search::isNodeInExploredSet (Node* inNode)
     return false;
 }
 
-bool Search::isNodeInFrontier(Node* inNode)
+int Search::isNodeInFrontier(Node* inNode)
 {
+    // return -1 if node is not in frontier
+    // return position in openSet if node is in frontier
+
     for (int i=0;i<numberOfNodesInFrontier;i++)
     {
         if (inNode == openSet[i])
         {
-            return true;
+            return i;
         }
     }
 
-    return false;
+    return -1;
 }

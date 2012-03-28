@@ -12,6 +12,18 @@
 
 int main(int argc, char *argv[])
 {
+//    int k = 4;
+//    std::vector <int> test;
+//    test.push_back(5);
+
+//    if (k < test[0])
+//    {
+//        test.insert(test.begin() + 0 + 1, k);
+//    }
+
+//    std::cout << test[0] << "\t" << test[1] << std::endl;
+
+
 
 #if GUI_DISPLAY == 1
 

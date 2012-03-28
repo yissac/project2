@@ -33,7 +33,7 @@ protected:
     void  addNodeToExploredSet(Node*);
     bool  goalTest(Node*);
     bool  isNodeInExploredSet(Node*);
-    bool  isNodeInFrontier(Node*);
+    int   isNodeInFrontier(Node*);
 
     int numberOfNodesInFrontier;
     int numberOfNodesInExploredSet;

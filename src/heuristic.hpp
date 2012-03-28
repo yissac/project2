@@ -4,6 +4,9 @@
 #include "node.hpp"
 #include "edge.hpp"
 
+#include <cmath>
+#include "mechanicalnode.hpp"
+
 class Heuristic
 {
 public:

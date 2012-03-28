@@ -37,7 +37,10 @@ void MainWindow::on_findButton_clicked()
     if (solution != NULL)
     {
         ui->simWidget->drawSolutionPath(solution);
+        std::cout << "Solution Found" << std::endl;
     }
+    else
+        std::cout << "No Solution Exists" << std::endl;
 }
 
 void MainWindow::on_loadFileButton_clicked()
