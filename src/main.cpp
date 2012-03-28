@@ -6,6 +6,7 @@
 #include "simulator.hpp"
 
 #include <iostream>
+#include <map>
 
 #define GUI_DISPLAY 1
 
@@ -29,7 +30,7 @@ int main(int argc, char *argv[])
 
 
 
-//    // Declare Variables
+    // Declare Variables
 //    Heuristic heur;
 //    OfflineFeeder<MechanicalNode> feeder("../resources/mechgraph2.xml");
 //    AStarGraphSearch search(&feeder);

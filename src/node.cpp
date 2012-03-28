@@ -19,15 +19,12 @@ Node::Node(int inNodeID)
 
 void Node::addSuccessor(Edge *e)
 {
-
     successors.push_back(e);
-
 }
 
-std::vector<Edge*>* Node::getSuccessors(){
-
+std::vector<Edge*>* Node::getSuccessors()
+{
     return &successors;
-
 }
 
 

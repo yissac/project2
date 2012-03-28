@@ -2,6 +2,7 @@
 #define ASTARGRAPHSEARCH_HPP
 
 #include <vector>
+#include <map>
 #include "search.hpp"
 #include "feeder.hpp"
 
@@ -16,11 +17,7 @@ public:
 
     Node* runSearch();
 
-    std::vector <Node*> getExploredSet();
-
 protected:
-
-    void sortPriorityQueue();
 };
 
 #endif // ASTARGRAPHSEARCH_HPP

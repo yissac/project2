@@ -10,12 +10,10 @@ public:
     Heuristic();
 
     void initGoal(Node*);
-    double evaluateHeuristic(double,Node*);
+    double evaluateHeuristic(Node*);
 
 private:
     Node* goalNode;
-    double g;
-    double h;
 };
 
 #endif // HEURISTIC_HPP

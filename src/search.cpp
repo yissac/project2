@@ -21,11 +21,12 @@ void Search::initializeSearchWithFeeder(Feeder* inFeeder)
 
 void Search::newSearch()
 {
-    frontier.nodes.clear();
-    frontier.costs.clear();
+    g_score.clear();
+    h_score.clear();
+    f_score.clear();
+    openSet.clear();
+    closedSet.clear();
     numberOfNodesInFrontier = 0;
-    exploredSet.nodes.clear();
-    exploredSet.costs.clear();
     numberOfNodesInExploredSet = 0;
 }
 
@@ -44,100 +45,41 @@ void Search::initHeuristic(Heuristic* inHeuristic)
     heuristic = inHeuristic;
 }
 
-void Search::addNodeToFrontier(Node* inNode,double inCost)
+void Search::addNodeToFrontier(Node* inNode)
 {
-    numberOfNodesInFrontier++;
-
-    if (numberOfNodesInFrontier == 1)
+    // If frontier is empty
+    if (numberOfNodesInFrontier == 0)
     {
-        frontier.nodes.push_back(inNode);
-        frontier.costs.push_back(inCost);
+        numberOfNodesInFrontier++;
+        openSet.push_back(inNode);
         return;
     }
 
-    std::vector <Node*>::iterator  posNode;
-    std::vector <double>::iterator posCost;
-    posNode = frontier.nodes.begin();
-    posCost = frontier.costs.begin();
-    bool leastExpensive(1);
-
-    for (int i=0;i<numberOfNodesInFrontier;i++)
+    // If frontier is not empty and inNode is the least f_score
+    double inCost = f_score[inNode->getNodeID()];
+    if (inCost < f_score[openSet[numberOfNodesInFrontier-1]->getNodeID()])
     {
-        if (inCost > frontier.costs[i])
-        {
-            leastExpensive = 0;
-            frontier.nodes.insert(posNode + i,inNode);
-            frontier.costs.insert(posCost + i,inCost);
-            break;
-        }
+        openSet.push_back(inNode);
+        numberOfNodesInFrontier++;
+        return;
     }
 
-    if (leastExpensive)
+    // If frontier is not empty and inNode is not the least f_score
+    for (int i=numberOfNodesInFrontier-2;i>-1;i--)
     {
-        frontier.nodes.push_back(inNode);
-        frontier.costs.push_back(inCost);
+        if (inCost < f_score[openSet[i]->getNodeID()])
+        {
+            openSet.insert(openSet.begin() + i + 1,inNode);
+            numberOfNodesInFrontier++;
+            return;
+        }
     }
 }
 
-void Search::addNodeToExploredSet(Node* inNode,double inCost)
+void Search::addNodeToExploredSet(Node* inNode)
 {
+    closedSet.push_back(inNode);
     numberOfNodesInExploredSet++;
-    exploredSet.nodes.push_back(inNode);
-    exploredSet.costs.push_back(inCost);
-}
-
-Node* Search::popFrontier()
-{
-    if (numberOfNodesInFrontier == 0)
-        return NULL;
-
-    Node* nodeToReturn = frontier.nodes[numberOfNodesInFrontier-1];
-    numberOfNodesInFrontier--;
-
-    frontier.nodes.erase(frontier.nodes.end()-1);
-    frontier.costs.erase(frontier.costs.end()-1);
-
-    return nodeToReturn;
-}
-
-int Search::isNodeInFrontier(Node* inNode)
-{
-    //  0: Not in frontier
-    // -1: Present in frontier but frontier is more optimal
-    //  n: Present in frontier at position n and frontier is not optimal
-
-    for (int i=0;i<numberOfNodesInFrontier;i++)
-    {
-        if (inNode == frontier.nodes[i])
-        {
-            if (frontier.nodes[i]->getHeuristicValue() < inNode->getHeuristicValue())
-                return -1;
-            else
-                return i;
-        }
-    }
-
-    return 0;
-}
-
-int Search::isNodeInExploredSet(Node* inNode)
-{
-    //  0: Not in explored set
-    // -1: Present in explored set and inNode is more optimal
-    // -2: Present in explored set but explored set is not more optimal
-
-    for (int i=0;i<numberOfNodesInExploredSet;i++)
-    {
-        if (inNode == exploredSet.nodes[i])
-        {
-            if (exploredSet.nodes[i]->getHeuristicValue() < inNode->getHeuristicValue())
-                return -2;
-            else
-                return -1;
-        }
-    }
-
-    return 0;
 }
 
 bool Search::goalTest(Node* nodeToBeTested)
@@ -150,5 +92,49 @@ bool Search::goalTest(Node* nodeToBeTested)
 
 std::vector <Node*> Search::getFrontier()
 {
-    return frontier.nodes;
+    return openSet;
+}
+
+std::vector <Node*> Search::getExploredSet()
+{
+    return closedSet;
+}
+
+Node* Search::popFrontier()
+{
+    if (numberOfNodesInFrontier == 0)
+        return NULL;
+
+    Node* nodeToReturn = openSet[numberOfNodesInFrontier-1];
+    numberOfNodesInFrontier--;
+
+    openSet.erase(openSet.end()-1);
+
+    return nodeToReturn;
+}
+
+bool Search::isNodeInExploredSet (Node* inNode)
+{
+    for (int i=numberOfNodesInExploredSet-1; i>-1; i--)
+    {
+        if (inNode == closedSet[i])
+        {
+            return true;
+        }
+    }
+
+    return false;
+}
+
+bool Search::isNodeInFrontier(Node* inNode)
+{
+    for (int i=0;i<numberOfNodesInFrontier;i++)
+    {
+        if (inNode == openSet[i])
+        {
+            return true;
+        }
+    }
+
+    return false;
 }

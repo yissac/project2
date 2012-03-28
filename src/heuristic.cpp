@@ -9,12 +9,10 @@ void Heuristic::initGoal(Node* inNode)
     goalNode = inNode;
 }
 
-double Heuristic::evaluateHeuristic(double g, Node* inNodePrime)
+double Heuristic::evaluateHeuristic(Node* inNodePrime)
 {
-    double f;
     double h;
-    h = 0; // use goal node and inNodePrime here
+    h = 0;
 
-    f = g + h;
-    return f;
+    return h;
 }

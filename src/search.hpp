@@ -2,17 +2,12 @@
 #define SEARCH_HPP
 
 #include <vector>
+#include <map>
 #include "feeder.hpp"
 #include "heuristic.hpp"
 #include "node.hpp"
 #include "edge.hpp"
 #include "observable.hpp"
-
-struct NodeAndCost
-{
-    std::vector <Node*>  nodes;
-    std::vector <double> costs;
-};
 
 class Search : public Observable
 {
@@ -21,35 +16,36 @@ public:
     Search();
     Search(Feeder*);
 
+    virtual Node* runSearch() = 0;
+
     void newSearch();
     void initializeSearchWithFeeder(Feeder*);
     void initInitNode(int);
     void initGoalNode(int);
     void initHeuristic(Heuristic*);
-
-    virtual Node* runSearch() = 0;
-
     std::vector<Node*> getFrontier();
     std::vector<Node*> getExploredSet();
 
 protected:
 
-    bool  goalTest(Node*);
-    int   isNodeInFrontier(Node*);
-    int   isNodeInExploredSet(Node*);
     Node* popFrontier();
-    void  addNodeToFrontier(Node*,double);
-    void  addNodeToExploredSet(Node*,double);
-    virtual void sortPriorityQueue() = 0;
+    void  addNodeToFrontier(Node*);
+    void  addNodeToExploredSet(Node*);
+    bool  goalTest(Node*);
+    bool  isNodeInExploredSet(Node*);
+    bool  isNodeInFrontier(Node*);
 
-    Feeder* feeder;
-    int initNodeID;
-    int goalNodeID;
-    Heuristic* heuristic;
     int numberOfNodesInFrontier;
     int numberOfNodesInExploredSet;
-    struct NodeAndCost frontier;
-    struct NodeAndCost exploredSet;
+    int initNodeID;
+    int goalNodeID;
+    Feeder* feeder;
+    Heuristic* heuristic;
+    std::vector <Node*> openSet;
+    std::vector <Node*> closedSet;
+    std::map <int,double> g_score;
+    std::map <int,double> h_score;
+    std::map <int,double> f_score;
 };
 
 #endif // SEARCH_HPP
