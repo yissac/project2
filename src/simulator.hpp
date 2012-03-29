@@ -44,6 +44,7 @@ private:
 
     void timerEvent(QTimerEvent*);
     void keyPressEvent(QKeyEvent*);
+    void keyReleaseEvent(QKeyEvent*);
     void mousePressEvent(QMouseEvent*);
     void mouseMoveEvent(QMouseEvent*);
     void mouseReleaseEvent(QMouseEvent*);
@@ -62,6 +63,8 @@ private:
     int xRot;
     int yRot;
     int zRot;
+    bool zoomIn,zoomOut;
+    bool panLeft,panRight;
     QPoint lastPos;
     double zHomeView;
 

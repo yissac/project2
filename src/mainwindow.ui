@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1257</width>
-    <height>638</height>
+    <width>921</width>
+    <height>573</height>
    </rect>
   </property>
   <property name="focusPolicy">
@@ -20,10 +20,10 @@
    <widget class="Simulator" name="simWidget" native="true">
     <property name="geometry">
      <rect>
-      <x>750</x>
-      <y>290</y>
-      <width>461</width>
-      <height>271</height>
+      <x>20</x>
+      <y>40</y>
+      <width>681</width>
+      <height>441</height>
      </rect>
     </property>
     <property name="focusPolicy">
@@ -32,12 +32,17 @@
     <zorder>verticalLayoutWidget</zorder>
     <zorder>verticalLayoutWidget</zorder>
     <zorder>verticalLayoutWidget</zorder>
+    <zorder>horizontalSpacer</zorder>
+    <zorder>groupBox</zorder>
+    <zorder>groupBox</zorder>
+    <zorder>groupBox</zorder>
+    <zorder>rrtButton</zorder>
    </widget>
    <widget class="QGroupBox" name="groupBox">
     <property name="geometry">
      <rect>
-      <x>740</x>
-      <y>20</y>
+      <x>720</x>
+      <y>40</y>
       <width>161</width>
       <height>201</height>
      </rect>
@@ -160,8 +165,8 @@
    <widget class="QPushButton" name="rrtButton">
     <property name="geometry">
      <rect>
-      <x>770</x>
-      <y>250</y>
+      <x>760</x>
+      <y>310</y>
       <width>75</width>
       <height>23</height>
      </rect>
@@ -176,7 +181,7 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>1257</width>
+     <width>921</width>
      <height>21</height>
     </rect>
    </property>

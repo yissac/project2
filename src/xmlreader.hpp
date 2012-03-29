@@ -31,12 +31,11 @@ public:
 private:
 
     std::string str;
-
     rapidxml::xml_document<> doc;
 
 public :
 
-    template<class NodeType>
+    template <class NodeType>
     std::map<int,NodeType*>* parseGraph(){
 
         // Common parsing code

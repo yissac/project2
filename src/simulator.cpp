@@ -5,6 +5,7 @@ double pi = atan(1.0)*4.0;
 Simulator::Simulator(QWidget *parent) :
     QGLWidget(parent)
 {
+    zoomIn = zoomOut = panRight = panLeft = false;
     xRot = yRot = zRot = 0;
     zHomeView = -40;
     timerID = 0;
@@ -72,11 +73,23 @@ void Simulator::paintGL()
 {
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
+    // Zoom and panning
+    if (zoomIn)
+        glTranslated(0.0,0.0,1.0);
+    if (zoomOut)
+        glTranslated(0.0,0.0,-1.0);
+    if (panRight)
+        glTranslated(1.0,0.0,0.0);
+    if (panRight)
+        glTranslated(-1.0,0.0,0.0);
+    // ----------------------------------------------------------------------------------
     // Needs to be moved to more optimal place - no need to call if no rotation is needed
     glRotatef(xRot/16.0,1.0,0.0,0.0);
     glRotatef(yRot/16.0,0.0,1.0,0.0);
     glRotatef(zRot/16.0,0.0,0.0,1.0);
     // ----------------------------------------------------------------------------------
+
+
 
     for (unsigned int i=0; i<graphicalObjects.size(); i++)
     {
@@ -296,6 +309,37 @@ void Simulator::keyPressEvent(QKeyEvent* event)
     {
     case Qt::Key_H:
         homeView();
+        break;
+    case Qt::Key_Up:
+        zoomIn = true;
+        break;
+    case Qt::Key_Down:
+        zoomOut = true;
+        break;
+    case Qt::Key_Right:
+        panRight = true;
+        break;
+    case Qt::Key_Left:
+        panLeft = true;
+        break;
+    }
+}
+
+void Simulator::keyReleaseEvent(QKeyEvent* event)
+{
+    switch(event->key())
+    {
+    case Qt::Key_Up:
+        zoomIn = false;
+        break;
+    case Qt::Key_Down:
+        zoomOut = false;
+        break;
+    case Qt::Key_Right:
+        panRight = false;
+        break;
+    case Qt::Key_Left:
+        panLeft = false;
         break;
     }
 }

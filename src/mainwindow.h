@@ -2,6 +2,7 @@
 #define MAINWINDOW_H
 
 #include <QMainWindow>
+#include <QtGui>
 #include <QtOpenGL/QGLWidget>
 #include <string>
 #include "dialog.hpp"
