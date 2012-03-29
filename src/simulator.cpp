@@ -79,17 +79,15 @@ void Simulator::paintGL()
     if (zoomOut)
         glTranslated(0.0,0.0,-1.0);
     if (panRight)
-        glTranslated(1.0,0.0,0.0);
-    if (panRight)
         glTranslated(-1.0,0.0,0.0);
+    if (panLeft)
+        glTranslated(1.0,0.0,0.0);
     // ----------------------------------------------------------------------------------
     // Needs to be moved to more optimal place - no need to call if no rotation is needed
     glRotatef(xRot/16.0,1.0,0.0,0.0);
     glRotatef(yRot/16.0,0.0,1.0,0.0);
     glRotatef(zRot/16.0,0.0,0.0,1.0);
     // ----------------------------------------------------------------------------------
-
-
 
     for (unsigned int i=0; i<graphicalObjects.size(); i++)
     {
