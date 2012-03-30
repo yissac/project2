@@ -11,15 +11,15 @@
 using namespace std;
 using namespace rapidxml;
 
-XmlReader::XmlReader(const std::string& filename){
+XmlReader::XmlReader(const std::string& __filename){
 
     /* Reading Xml file as a string */
 
-     std::ifstream ifs(filename.c_str());
+     std::ifstream ifs(__filename.c_str());
 
      if (!ifs){
 
-         cerr << "Unable to open file " << filename << endl;
+         cerr << "Unable to open file " << __filename << endl;
 
      }
 

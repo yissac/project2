@@ -29,14 +29,8 @@
     <property name="focusPolicy">
      <enum>Qt::StrongFocus</enum>
     </property>
-    <zorder>verticalLayoutWidget</zorder>
-    <zorder>verticalLayoutWidget</zorder>
-    <zorder>verticalLayoutWidget</zorder>
-    <zorder>horizontalSpacer</zorder>
     <zorder>groupBox</zorder>
     <zorder>groupBox</zorder>
-    <zorder>groupBox</zorder>
-    <zorder>rrtButton</zorder>
    </widget>
    <widget class="QGroupBox" name="groupBox">
     <property name="geometry">
@@ -157,10 +151,6 @@
     <zorder>goalNodeLabel</zorder>
     <zorder>loadFileBox</zorder>
     <zorder>rrtButton</zorder>
-    <zorder>rrtButton</zorder>
-    <zorder>rrtButton</zorder>
-    <zorder>simWidget</zorder>
-    <zorder>rrtButton</zorder>
    </widget>
    <widget class="QPushButton" name="rrtButton">
     <property name="geometry">
@@ -205,6 +195,15 @@
    <container>1</container>
   </customwidget>
  </customwidgets>
+ <tabstops>
+  <tabstop>simWidget</tabstop>
+  <tabstop>loadFileBox</tabstop>
+  <tabstop>loadFileButton</tabstop>
+  <tabstop>initNodeBox</tabstop>
+  <tabstop>goalNodeBox</tabstop>
+  <tabstop>findButton</tabstop>
+  <tabstop>rrtButton</tabstop>
+ </tabstops>
  <resources/>
  <connections/>
 </ui>

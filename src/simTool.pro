@@ -32,7 +32,8 @@ SOURCES += main.cpp\
     dialog.cpp \
     rrtsearch.cpp \
     searchnode.cpp \
-    environment.cpp
+    environment.cpp \
+    xmlread.cpp
 HEADERS += mainwindow.h \
         node.hpp \
         edge.hpp \
@@ -59,10 +60,13 @@ HEADERS += mainwindow.h \
     dialog.hpp \
     rrtsearch.h \
     environment.h \
-    searchnode.h
+    searchnode.h \
+    xmlread.hpp
 FORMS   += mainwindow.ui \
     dialog.ui
 CONFIG  += console
+
+
 
 
 
