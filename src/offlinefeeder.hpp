@@ -10,7 +10,7 @@
 #include "xmlreader.hpp"
 //#include "xmlwriter.hpp"
 
-#include <xmlread.hpp>
+#include "xmlread.hpp"
 
 template<class NodeType>
 class OfflineFeeder : public Feeder
@@ -33,15 +33,15 @@ public:
 
     void initializeFeederWithFileName(const std::string& filename)
     {
-        XmlRead testRead(filename);
-        testRead.parseGraph();
-
+        mapping->clear();
+        XmlRead xmlread(filename);
+        mapping = xmlread.parseGraph();
+        std::cout << "Offline Feeder built from XML File : " << filename << std::endl;
 
 //        mapping->clear();
-
-        XmlReader xmlreader(filename);
-        mapping = xmlreader.parseGraph<NodeType>();
-        std::cout << "OfflineFeed built from XML File : " << filename  << std::endl;
+//        XmlReader xmlreader(filename);
+//        mapping = xmlreader.parseGraph<NodeType>();
+//        std::cout << "OfflineFeed built from XML File : " << filename  << std::endl;
     }
 
     void exportToXml(const std::string& filename)

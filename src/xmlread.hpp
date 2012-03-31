@@ -18,11 +18,10 @@ class XmlRead
 public:
     XmlRead(std::string);
 
-    void parseGraph();
+    std::map <int,MechanicalNode*>* parseGraph();
 
 private:
     std::string filename;
-
 };
 
 #endif // XMLREAD_HPP

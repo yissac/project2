@@ -6,14 +6,11 @@
 #include "simulator.hpp"
 
 #include <iostream>
-#include <map>
-
 
 #define GUI_DISPLAY 1
 
 int main(int argc, char *argv[])
 {
-
 #if GUI_DISPLAY == 1
 
     QApplication a(argc, argv);

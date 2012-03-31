@@ -1,4 +1,4 @@
-#ifndef XMLREADER_HPP
+    #ifndef XMLREADER_HPP
 #define XMLREADER_HPP
 
 #include <string>
