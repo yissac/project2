@@ -7,6 +7,8 @@
 #include <cmath>
 #include "mechanicalnode.hpp"
 
+#include <iostream>
+
 class Heuristic
 {
 public:

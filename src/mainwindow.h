@@ -35,9 +35,9 @@ private slots:
 private:
     Ui::MainWindow *ui;
 
-    Heuristic heur;
     OfflineFeeder <MechanicalNode>* feeder;
     Search* search;
+    Heuristic* heur;
 };
 
 #endif // MAINWINDOW_H

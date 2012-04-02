@@ -33,7 +33,8 @@ public:
 
     void initializeFeederWithFileName(const std::string& filename)
     {
-        mapping->clear();
+//        if (!mapping)
+//            mapping->clear();
         XmlRead xmlread(filename);
         mapping = xmlread.parseGraph();
         std::cout << "Offline Feeder built from XML File : " << filename << std::endl;

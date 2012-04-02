@@ -29,7 +29,8 @@ void MainWindow::on_findButton_clicked()
 
     search->initInitNode(initNode);
     search->initGoalNode(goalNode);
-    search->initHeuristic(&heur);
+    search->initHeuristic(heur);
+    heur->initGoal(feeder->getNode(goalNode));
 
     // Run the algorithm
     Node* solution = search->runSearch();
@@ -50,9 +51,12 @@ void MainWindow::on_loadFileButton_clicked()
         delete feeder;
     if (!search)
         delete search;
+    if (!heur)
+        delete heur;
 
     feeder = new OfflineFeeder <MechanicalNode>;
     search = new AStarGraphSearch;
+    heur   = new Heuristic;
 
     feeder->initializeFeederWithFileName(filename.c_str());
     search->registerObserver(ui->simWidget);

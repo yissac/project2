@@ -13,7 +13,7 @@ double Heuristic::evaluateHeuristic(Node* inNodePrime)
 {
     double h;
 
-    double* pos = ((MechanicalNode*)goalNode)->getPos();
+    double* pos      = ((MechanicalNode*)goalNode)->getPos();
     double* posPrime = ((MechanicalNode*)inNodePrime)->getPos();
 
     double deltaX = pos[0]-posPrime[0];
@@ -21,5 +21,6 @@ double Heuristic::evaluateHeuristic(Node* inNodePrime)
     double deltaZ = pos[2]-posPrime[2];
     h = sqrt(deltaX*deltaX + deltaY*deltaY + deltaZ*deltaZ);
 
+    h = 0;
     return h;
 }

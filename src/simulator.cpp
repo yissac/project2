@@ -173,7 +173,7 @@ void Simulator::notify(int __ID,NotificationType updateType)
 
     clock_t startTime;
     startTime = std::clock();
-    while(std::clock() -startTime < 0.1*(double)CLOCKS_PER_SEC)
+    while(std::clock() -startTime < 0.05*(double)CLOCKS_PER_SEC)
         qAppPtr->processEvents();
 }
 

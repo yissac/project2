@@ -81,7 +81,7 @@ Node* Search::popFrontier()
         return NULL;
 
     int index = 0;
-    double min_f_score = f_score[index];
+    double min_f_score = f_score[openSet[0]->getNodeID()];
     for (int i=0;i<numberOfNodesInFrontier;i++)
     {
         double current_f_score = f_score[openSet[i]->getNodeID()];

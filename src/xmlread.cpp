@@ -76,6 +76,8 @@ std::map <int,MechanicalNode*>* XmlRead::parseGraph()
         }
         else if (elem.tagName() == "edges")
         {
+            QString costType = elem.attribute("costtype");
+
             int edgeID(0);
             for (QDomNode e = elem.firstChild(); !e.isNull(); e = e.nextSibling())
             {
@@ -93,23 +95,22 @@ std::map <int,MechanicalNode*>* XmlRead::parseGraph()
                 edgeID++;
 
                 double costValue;
-                QString cost = elem.attribute("cost");
-                if (cost == "distance")
+                if (costType == "distance")
                 {
                     double* pos1 = sourceNode->getPos();
                     double* pos2 = targetNode->getPos();
                     double deltaX = pos1[0] - pos2[0];
                     double deltaY = pos1[1] - pos2[1];
                     double deltaZ = pos1[2] - pos2[2];
-                    cost = sqrt(deltaX*deltaX + deltaY*deltaY + deltaZ*deltaZ);
+                    costValue = sqrt(deltaX*deltaX + deltaY*deltaY + deltaZ*deltaZ);
                 }
-                else if (cost == "jumps")
+                else if (costType == "jumps")
                 {
                     costValue = 1;
                 }
                 else
                 {
-                    costValue = cost.toDouble();
+                    costValue = elem.attribute("cost").toDouble();
                 }
                 edge1->setCost(costValue);
 
