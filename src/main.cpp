@@ -4,6 +4,7 @@
 #include "offlinefeeder.hpp"
 #include "socialnode.hpp"
 #include "simulator.hpp"
+#include "surfex.hpp"
 
 #include <iostream>
 

@@ -69,3 +69,13 @@ void MainWindow::on_rrtButton_clicked()
     static Dialog diag;
     diag.show();
 }
+
+void MainWindow::on_optButton_clicked()
+{
+    static optimize opt;
+    opt.show();
+}
+
+
+
+

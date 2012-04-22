@@ -33,7 +33,9 @@ SOURCES += main.cpp\
     rrtsearch.cpp \
     searchnode.cpp \
     environment.cpp \
-    xmlread.cpp
+    xmlread.cpp \
+    surfex.cpp \
+    optimize.cpp
 HEADERS += mainwindow.h \
         node.hpp \
         edge.hpp \
@@ -61,9 +63,12 @@ HEADERS += mainwindow.h \
     rrtsearch.h \
     environment.h \
     searchnode.h \
-    xmlread.hpp
+    xmlread.hpp \
+    surfex.hpp \
+    optimize.h
 FORMS   += mainwindow.ui \
-    dialog.ui
+    dialog.ui \
+    optimize.ui
 CONFIG  += console
 
 
