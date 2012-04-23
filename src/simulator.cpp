@@ -8,7 +8,7 @@ Simulator::Simulator(QWidget *parent) :
     zoomIn = zoomOut = panRight = panLeft = false;
     xRot = yRot = zRot = 0;
     zHomeView = -40;
-    timerID = 0;
+//    timerID = 0;
 }
 
 Simulator::~Simulator()

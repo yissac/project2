@@ -11,6 +11,7 @@ public:
     void setPos(double x, double y, double z);
     double* getPos(){return pos;}
 
+private:
     double pos[3];
 };
 

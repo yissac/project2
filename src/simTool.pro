@@ -33,7 +33,8 @@ SOURCES += main.cpp\
     rrtsearch.cpp \
     searchnode.cpp \
     environment.cpp \
-    xmlread.cpp
+    xmlread.cpp \
+    simulatedannealing.cpp
 HEADERS += mainwindow.h \
         node.hpp \
         edge.hpp \
@@ -61,7 +62,8 @@ HEADERS += mainwindow.h \
     rrtsearch.h \
     environment.h \
     searchnode.h \
-    xmlread.hpp
+    xmlread.hpp \
+    simulatedannealing.hpp
 FORMS   += mainwindow.ui \
     dialog.ui
 CONFIG  += console

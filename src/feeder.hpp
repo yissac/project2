@@ -1,11 +1,9 @@
 #ifndef FEEDER_HPP
 #define FEEDER_HPP
 
-
 #include <vector>
 #include "node.hpp"
 #include "edge.hpp"
-
 
 class Feeder
 {

@@ -21,6 +21,6 @@ double Heuristic::evaluateHeuristic(Node* inNodePrime)
     double deltaZ = pos[2]-posPrime[2];
     h = sqrt(deltaX*deltaX + deltaY*deltaY + deltaZ*deltaZ);
 
-    h = 0;
+//    h = 0;
     return h;
 }
