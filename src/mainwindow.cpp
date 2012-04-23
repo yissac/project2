@@ -76,6 +76,10 @@ void MainWindow::on_optButton_clicked()
     opt.show();
 }
 
-
-
-
+void MainWindow::on_optButton_2_clicked()
+{
+    SimulatedAnnealing simOpt;
+    simOpt.initializeFeeder(feeder);
+    simOpt.setNewNodes(3);
+    simOpt.run();
+}

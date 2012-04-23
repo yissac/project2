@@ -12,6 +12,7 @@
 #include "simulator.hpp"
 #include "heuristic.hpp"
 #include "optimize.h"
+#include "simulatedannealing.hpp"
 
 namespace Ui {
     class MainWindow;
@@ -33,6 +34,7 @@ private slots:
 
     void on_rrtButton_clicked();
     void on_optButton_clicked();
+    void on_optButton_2_clicked();
 
 private:
     Ui::MainWindow *ui;
