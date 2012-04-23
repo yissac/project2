@@ -11,6 +11,7 @@
 #include "offlinefeeder.hpp"
 #include "simulator.hpp"
 #include "heuristic.hpp"
+#include "optimize.h"
 
 namespace Ui {
     class MainWindow;
@@ -31,6 +32,7 @@ private slots:
     void on_loadFileButton_clicked();
 
     void on_rrtButton_clicked();
+    void on_optButton_clicked();
 
 private:
     Ui::MainWindow *ui;

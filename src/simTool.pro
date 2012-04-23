@@ -35,6 +35,8 @@ SOURCES += main.cpp\
     environment.cpp \
     xmlread.cpp \
     simulatedannealing.cpp
+    surfex.cpp \
+    optimize.cpp
 HEADERS += mainwindow.h \
         node.hpp \
         edge.hpp \
@@ -63,9 +65,12 @@ HEADERS += mainwindow.h \
     environment.h \
     searchnode.h \
     xmlread.hpp \
-    simulatedannealing.hpp
+    simulatedannealing.hpp \
+    surfex.hpp \
+    optimize.h
 FORMS   += mainwindow.ui \
-    dialog.ui
+    dialog.ui \
+    optimize.ui
 CONFIG  += console
 
 
